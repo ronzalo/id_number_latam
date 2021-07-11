@@ -1,0 +1,19 @@
+# frozen_string_literal: true
+
+RSpec.describe IdNumberLatam::ClDni do
+  subject { IdNumberLatam::ClDni.new("11.111.111-1") }
+
+  context "with a valid id number" do
+    it "valid id_number" do
+      expect(subject.valid?).to be_truthy
+    end
+
+    it "unformat id_number" do
+      expect(subject.unformat).to eq("111111111")
+    end
+
+    it "format id_number" do
+      expect(subject.format).to eq("11.111.111-1")
+    end
+  end
+end
