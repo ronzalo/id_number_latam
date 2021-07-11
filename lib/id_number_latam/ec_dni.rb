@@ -26,8 +26,7 @@ module IdNumberLatam
     def format
       dni = unformat
       digit = dni.slice!(-1)
-      formatted_dni = dni.reverse.gsub(/(\d{3})(?=\d)/, '\\1.').reverse
-      [formatted_dni, digit].join("-")
+      [dni, digit].join("-")
     end
 
     def unformat

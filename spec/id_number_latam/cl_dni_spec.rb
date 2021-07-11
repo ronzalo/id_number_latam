@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe IdNumberLatam::ClDni do
-  subject { IdNumberLatam::ClDni.new("11.111.111-1") }
+  subject { described_class.new("11.111.111-1") }
 
   context "with a valid id number" do
     it "valid id_number" do
