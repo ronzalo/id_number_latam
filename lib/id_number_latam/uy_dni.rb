@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module IdNumberLatam
   class UyDni < Base
     attr_reader :digit
@@ -9,7 +11,7 @@ module IdNumberLatam
     end
 
     def unformat
-      id_number.gsub(/\D/, '')
+      id_number.gsub(/\D/, "")
     end
 
     def format
@@ -21,10 +23,11 @@ module IdNumberLatam
 
     def valid?
       return false unless valid_length
+
       dni = unformat
       digit = dni.slice!(-1)
 
-      (10 - (dni.chars.zip("2987634".chars).map {|p| p.map(&:to_i).inject(&:*) }.sum % 10)).to_s == digit
+      (10 - (dni.chars.zip("2987634".chars).map { |p| p.map(&:to_i).inject(&:*) }.sum % 10)).to_s == digit
     end
 
     def valid_length

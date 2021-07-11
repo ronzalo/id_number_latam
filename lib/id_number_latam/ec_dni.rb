@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module IdNumberLatam
   class EcDni < Base
     attr_reader :digit, :third_digit
@@ -30,16 +32,16 @@ module IdNumberLatam
     end
 
     def unformat
-      id_number.gsub(/\D/, '')
+      id_number.gsub(/\D/, "")
     end
 
     def valid?
       return false unless valid_length
       return false unless unformat[0..1].to_i <= 24
-      return false unless [0,1,2,3,4,5,6,9].include?(unformat[2].to_i)
+      return false unless [0, 1, 2, 3, 4, 5, 6, 9].include?(unformat[2].to_i)
 
       dni = unformat[0..8]
-      (modulo - (dni.chars.zip(coefficient.chars).map {|p| p.map(&:to_i).inject(&:*) }.map {|r| operation_block(r) }.sum % modulo)).to_s == @digit
+      (modulo - (dni.chars.zip(coefficient.chars).map { |p| p.map(&:to_i).inject(&:*) }.map { |r| operation_block(r) }.sum % modulo)).to_s == @digit
     end
 
     def operation_block(prod)

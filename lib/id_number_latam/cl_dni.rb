@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module IdNumberLatam
   class ClDni < Base
     attr_reader :digit
@@ -9,7 +11,7 @@ module IdNumberLatam
     end
 
     def unformat
-      id_number.gsub(/\D/, '')
+      id_number.gsub(/\D/, "")
     end
 
     def format
@@ -21,10 +23,11 @@ module IdNumberLatam
 
     def valid?
       return false unless valid_length
+
       dni = unformat
       digit = dni.slice!(-1)
 
-      [*0..9,'K'][dni.to_s.reverse.chars.inject([0,0]){|(i,a),n|[i+1,a-n.to_i*(i%6+2)]}[1]%11].to_s == digit
+      [*0..9, "K"][dni.to_s.reverse.chars.inject([0, 0]) { |(i, a), n| [i + 1, a - n.to_i * (i % 6 + 2)] }[1] % 11].to_s == digit
     end
 
     def valid_length
