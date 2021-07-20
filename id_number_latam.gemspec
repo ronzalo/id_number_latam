@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["goncab380@hotmail.com"]
 
   spec.summary       = "Wrapper for id number validators and formatters in LatAm"
-  spec.description   = "Supported Countries: Chile, Uruguay, Ecuador, Colombia"
+  spec.description   = "Supported Countries: Chile, Uruguay, Ecuador"
   spec.homepage      = "https://gonzalomoreno.me/id_number_latam"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")

@@ -1,15 +1,15 @@
 # IdNumberLatam
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/id_number_latam`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Ruby](https://github.com/ronzalo/id_number_latam/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/ronzalo/id_number_latam/actions/workflows/main.yml)
 
-TODO: Delete this and the text above, and describe your gem
+A gem to validate the format of the identification number in some of latam countries, currently only for Chile, Ecuador and Uruguay, but it can be easily extended to other countries.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'id_number_latam'
+gem 'id_number_latam', github: 'ronzalo/id_number_latam'
 ```
 
 And then execute:
@@ -22,7 +22,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+# DNI for Chile
+dni = IdNumberLatam::Base.new('11111111-1', country: :cl)
+dni.valid?
+#=> true
+dni.format
+#=> "11.111.111-1"
+dni.unformat
+#=> "111111111"
+```
 
 ## Development
 
@@ -32,7 +41,14 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/id_number_latam. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/id_number_latam/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/ronzalo/id_number_latam. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/ronzalo/id_number_latam/blob/master/CODE_OF_CONDUCT.md).
+
+## To-do
+
+ - [ ] Add more countries
+ - [ ] Add more tests
+ - [ ] Add more validations
+ - [ ] Add Rails class methods support
 
 ## License
 
@@ -40,4 +56,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the IdNumberLatam project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/id_number_latam/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the IdNumberLatam project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/ronzalo/id_number_latam/blob/master/CODE_OF_CONDUCT.md).
