@@ -30,6 +30,8 @@ module IdNumberLatam
       [*0..9, "K"][dni.to_s.reverse.chars.inject([0, 0]) { |(i, a), n| [i + 1, a - n.to_i * (i % 6 + 2)] }[1] % 11].to_s == digit
     end
 
+    private
+
     def valid_length
       unformat.size >= 8 && unformat.size <= 9
     end

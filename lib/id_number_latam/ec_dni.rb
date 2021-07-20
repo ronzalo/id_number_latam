@@ -11,20 +11,6 @@ module IdNumberLatam
       @digit       = @third_digit == "6" ? unformat[8] : unformat[9]
     end
 
-    def coefficient
-      if (0..5).include? @third_digit.to_i
-        "212121212"
-      elsif @third_digit == "6"
-        "32765432"
-      elsif @third_digit == "9"
-        "432765432"
-      end
-    end
-
-    def modulo
-      (0..5).include?(@third_digit.to_i) ? 10 : 11
-    end
-
     def format
       dni = unformat
       digit = dni.slice!(-1)
@@ -42,6 +28,22 @@ module IdNumberLatam
 
       dni = unformat[0..8]
       (modulo - (dni.chars.zip(coefficient.chars).map { |p| p.map(&:to_i).inject(&:*) }.map { |r| operation_block(r) }.sum % modulo)).to_s == @digit
+    end
+
+    private
+
+    def coefficient
+      if (0..5).include? @third_digit.to_i
+        "212121212"
+      elsif @third_digit == "6"
+        "32765432"
+      elsif @third_digit == "9"
+        "432765432"
+      end
+    end
+
+    def modulo
+      (0..5).include?(@third_digit.to_i) ? 10 : 11
     end
 
     def operation_block(prod)

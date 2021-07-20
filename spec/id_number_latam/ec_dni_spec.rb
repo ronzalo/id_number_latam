@@ -17,11 +17,11 @@ RSpec.describe IdNumberLatam::EcDni do
     end
 
     it "#modulo" do
-      expect(subject.modulo).to eq(10)
+      expect(subject.send(:modulo)).to eq(10)
     end
 
     it "#coefficient" do
-      expect(subject.coefficient).to eq("212121212")
+      expect(subject.send(:coefficient)).to eq("212121212")
     end
   end
 
@@ -41,11 +41,11 @@ RSpec.describe IdNumberLatam::EcDni do
     end
 
     it "#modulo" do
-      expect(subject.modulo).to eq(11)
+      expect(subject.send(:modulo)).to eq(11)
     end
 
     it "#coefficient" do
-      expect(subject.coefficient).to eq("32765432")
+      expect(subject.send(:coefficient)).to eq("32765432")
     end
   end
 
@@ -65,11 +65,11 @@ RSpec.describe IdNumberLatam::EcDni do
     end
 
     it "#modulo" do
-      expect(subject.modulo).to eq(11)
+      expect(subject.send(:modulo)).to eq(11)
     end
 
     it "#coefficient" do
-      expect(subject.coefficient).to eq("432765432")
+      expect(subject.send(:coefficient)).to eq("432765432")
     end
   end
 end
