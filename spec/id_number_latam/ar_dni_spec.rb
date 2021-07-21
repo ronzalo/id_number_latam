@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe IdNumberLatam::ClDni do
+RSpec.describe IdNumberLatam::ArDni do
   subject { described_class.new("11.111.111") }
 
   context "with a valid id number" do
