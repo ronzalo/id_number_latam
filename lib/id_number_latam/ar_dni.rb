@@ -18,7 +18,7 @@ module IdNumberLatam
     end
 
     def valid?
-      return false unless valid_length
+      valid_length
     end
 
     def valid_length
