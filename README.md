@@ -2,14 +2,14 @@
 
 [![Ruby](https://github.com/ronzalo/id_number_latam/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/ronzalo/id_number_latam/actions/workflows/main.yml)
 
-A gem to validate the format of the identification number in some of latam countries, currently only for Chile, Ecuador and Uruguay, but it can be easily extended to other countries.
+A gem to validate the format of the identification number in some of latam countries, currently only for Argentina, Chile, Ecuador, Paraguay, Perú and Uruguay, but it can be easily extended to other countries.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'id_number_latam', github: 'ronzalo/id_number_latam'
+gem 'id_number_latam'
 ```
 
 And then execute:
